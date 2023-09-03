@@ -26,6 +26,6 @@ export class ProductsService {
   }
 
   remove(id: number) {
-    return this.repository.remove(id);
+    this.repository.remove(id);
   }
 }

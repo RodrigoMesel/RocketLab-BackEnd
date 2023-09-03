@@ -7,20 +7,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Products {
+model Products { // Tabela para armazenar os produtos disponíveis
   id Int @id @default(autoincrement())
   name String
   description String
   imageLink String 
   price Float
 
-  Purchases  Purchases[]
+  cart CartProducts[]
 }
 
-model Purchases {
-  id Int @id @default(autoincrement())
-  productId Int 
-  quantity Int
-  
-  Product   Products @relation(fields: [productId], references: [id])
+model CartProducts { // Tabela para armazenar os produtos do carrinho
+    id Int @id @default(autoincrement())
+    productId Int
+    quantity Int
+
+    Product   Products @relation(fields: [productId], references: [id]) // Chave estrangeira
 }
+
+model Purchases { // Tabela com o histórico de compras
+  id Int @id @default(autoincrement())
+  products Json[] // Aqui ele vai armazenar um array de Json's, em cada Json vai ter o id de um produto e a quantidade de selecionados
+}
+
+
