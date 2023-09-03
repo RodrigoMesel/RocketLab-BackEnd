@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty, Length, Min } from "class-validator";
+import { IsInt, IsNotEmpty, IsNumber, Length, Min } from "class-validator";
 
 
 export class CreateProductDto {
@@ -14,7 +14,7 @@ export class CreateProductDto {
     imageLink: string;
 
     @IsNotEmpty({message: "preço não pode ser nulo"})
-    @IsInt({message: "preço tem que ser um numeral"})
+    @IsNumber()
     @Min(0, {message: "preço tem que ser um valor positivo"})
     price: number;
 
