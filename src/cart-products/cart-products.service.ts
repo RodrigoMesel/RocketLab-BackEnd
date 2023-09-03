@@ -24,7 +24,7 @@ export class CartProductsService {
   }
 
   remove(id: number) {
-    this.repository.remove(id);
+     this.repository.remove(id);
   }
 
   removeAll(){

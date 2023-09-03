@@ -84,4 +84,18 @@ export class CartProductsRepository {
         }
    }
 
+   async removeByProductId(productId: number) {
+        try {     
+
+            await this.prisma.cartProducts.deleteMany({
+                where: {
+                    productId: productId
+                }
+            })
+
+        } catch (error) {
+        throw error;
+        }
+   }
+
 }
