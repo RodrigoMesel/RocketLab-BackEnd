@@ -14,7 +14,7 @@ model Products { // Tabela para armazenar os produtos disponíveis
   imageLink String 
   price Float
 
-  cart CartProducts[]
+  cart CartProducts[] // Para a chave estrangeira
 }
 
 model CartProducts { // Tabela para armazenar os produtos do carrinho
@@ -27,7 +27,7 @@ model CartProducts { // Tabela para armazenar os produtos do carrinho
 
 model Purchases { // Tabela com o histórico de compras
   id Int @id @default(autoincrement())
-  products Json[] // Aqui ele vai armazenar um array de Json's, em cada Json vai ter o id de um produto e a quantidade de selecionados
+  products Json[] // Armazena um array de Json's, em cada Json vai ter o id de um produto e a quantidade de selecionados
 }
 
 
